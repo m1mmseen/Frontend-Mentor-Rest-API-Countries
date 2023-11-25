@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class NavigationComponent {
 
+
+    switchTheme() {
+      document.body.classList.toggle("light-theme");
+      document.body.classList.toggle("dark-theme");
+      document.querySelector(".theme-mode.light-theme")?.classList.toggle("visible");
+      document.querySelector(".theme-mode.dark-theme")?.classList.toggle("visible");
+    }
 }

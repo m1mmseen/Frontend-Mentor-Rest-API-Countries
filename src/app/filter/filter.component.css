@@ -66,6 +66,7 @@ input::placeholder {
   width: 60%;
   max-width: 200px;
   padding-inline: 1rem;
+  color: var(--text-clr);
 }
 
 .arrow {

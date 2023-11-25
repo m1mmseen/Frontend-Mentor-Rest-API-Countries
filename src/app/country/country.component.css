@@ -17,6 +17,7 @@
 .info-grid  {
   font-size: var(--text);
   font-weight: 300;
+  color: var(--text-clr);
 }
 
 .info-grid > div {
