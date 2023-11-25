@@ -1,0 +1,13 @@
+<div class="filter">
+    <input class="field-layout " type="text" placeholder="Search for a country...">
+  <div class="filter-dropdown field-layout" (click)="showRegions()">
+    <span>Filter by Region</span>
+    <i class="arrow down"></i>
+    <div class="dropdown-content field-layout" id="dropdown-content">
+      <ul>
+        <li *ngFor="let region of regions">{{region}}</li>
+      </ul>
+    </div>
+  </div>
+
+</div>

@@ -1,1 +1,89 @@
-/* You can add global styles to this file, and also import other style files */
+/*    TABLE OF CONTENT
+
+    1. VARIABLES
+    2. GENERAL
+    3. TYPOGRAPHY
+    4. GLOBAL COMPONENTS
+
+
+*/
+
+/* ----- VARIABLES ----- */
+@font-face {
+  font-family: nunito-sans;
+  src: url("assets/fonts/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+:root {
+  --heading-l: clamp(0.875rem, 0.6549rem + 0.939vw, 1.5rem);
+  --heading-m: 18px;
+  --heading-s:clamp(0.75rem, 0.662rem + 0.3756vw, 1rem);
+  --text: 14px;
+  --dropdown-text: clamp(0.75rem, 0.706rem + 0.1878vw, 0.875rem);
+
+  --padding-outside: clamp(1.125rem, -0.2614rem + 5.9155vw, 5.0625rem);
+}
+
+.dark-theme {
+  --primary: hsla(209, 23%, 22%, 1);
+  --bg: hsla(207, 26%, 17%, 1);
+  --text-clr: hsla(0, 0%, 100%, 1);
+  --shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.03);
+}
+
+.light-theme {
+  --primary: hsla(0, 0%, 100%, 1);
+  --bg: hsla(0, 0%, 98%, 1);
+  --text-clr: hsla(200, 15%, 8%, 1);
+  --shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.03);
+}
+
+/* ----- GENERAL ----- */
+body {
+  font-family: nunito-sans, sans-serif;
+  background-color: var(--bg);
+  margin: 0;
+  height: 100svh;
+  box-sizing: border-box;
+}
+
+/* -----TYPOGRAPHY ----- */
+h1,
+h2,
+h3,
+p {
+  color: var(--text-clr);
+}
+
+h1 {
+  font-size: var(--heading-l);
+  font-weight: 800;
+}
+
+h2 {
+  font-size: var(--heading-m);
+  font-weight: 800;
+}
+
+h3 {
+  font-size: var(--heading-s);
+}
+
+p {
+  font-size: var(--text);
+}
+
+/* -----GLOBAL STYLES ----- */
+
+.field-layout {
+  box-sizing: border-box;
+  height: 48px;
+  background-color: var(--primary);
+  font-size: 12px;
+  margin-bottom: 12px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: var(--shadow);
+}

@@ -1,0 +1,118 @@
+/*     TABLE OF CONTENT
+
+    1. GENERAL
+    2. SEARCHBAR
+    3.REGION FILTER DROPDOWN
+      - DROPDOWN "BUTTON"
+      - DROPDOWN CONTENT
+*/
+
+
+/* ----- GENERAL ----- */
+.filter {
+  padding-inline: var(--padding-outside);
+  margin-top: clamp(1.5rem, 0.9718rem + 2.2535vw, 3rem);;
+}
+
+@media screen and (min-width: 768px) {
+  .filter {
+    display: flex;
+    gap: 2rem;
+  }
+}
+
+
+/* ----- SEARCHBAR ----- */
+input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 48px;
+  background-color: var(--primary);
+  background-image: url('src/assets/images/searchicon.png');
+  background-position: left 10px center;
+  background-repeat: no-repeat;
+  font-size: 12px;
+  padding: 12px 20px 12px 40px;
+  margin-bottom: 12px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: var(--shadow);
+}
+
+input:hover, input:focus {
+  border: none;
+  outline: 2px solid hsla(0, 0%, 77%, 1);
+}
+
+input::placeholder {
+  color: hsla(0, 0%, 77%, 1);
+  font-family: Nunito Sans, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 166.667% */
+}
+
+/* ----- REGION FILTER DROPDOWN ----- */
+
+/* ---> DROPDOWN "BUTTON" ---- */
+
+.filter-dropdown {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 60%;
+  max-width: 200px;
+  padding-inline: 1rem;
+}
+
+.arrow {
+  border: solid var(--text);
+  border-width: 0 1px 1px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+/* ---> DROPDOWN CONTENT ---- */
+
+.dropdown-content {
+  opacity: 0;
+  position: absolute;
+  top: 52px;
+  left: 0;
+  width: 100%;
+  height: fit-content;
+  font-size: var(--dropdown-text);
+  background-color: var(--primary);
+  z-index: 1;
+  padding-inline: 1rem;
+  transition: opacity .5s ease;
+}
+
+.dropdown-content ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.dropdown-content ul li {
+  margin: .5rem 0;
+}
+
+.dropdown-content ul li:hover {
+  font-weight: 700;
+}
+
+/*This class is used by ts to toggle visibility*/
+.dropdown-content.visible {
+  opacity: 1;
+}
+
+
+

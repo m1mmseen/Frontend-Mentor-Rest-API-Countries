@@ -1,0 +1,29 @@
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  background-color: var(--primary);
+  padding-inline:var(--padding-outside);
+}
+
+.theme-switcher {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.theme-switcher img {
+  width: 16px;
+  height: 16px;
+}
+
+.theme-switcher img:not(.visible), .theme-switcher h3:not(.visible) {
+  display: none;
+}
+
+.theme-switcher .icon.visible, .theme-switcher h3.visible {
+  display: block;
+}
+
+
