@@ -1,4 +1,4 @@
-<filter></filter>
+<filter (newFilterEvent)="filteredByRegion($event)"></filter>
 <div class="countries">
   <country *ngFor="let country of countries" [countryFromParent]="country"></country>
 </div>

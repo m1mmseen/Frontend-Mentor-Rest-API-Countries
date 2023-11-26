@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'filter',
@@ -6,10 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./filter.component.css']
 })
 export class FilterComponent {
-    regions = ["Africa", "America", "Asia", "Europe", "Oceania"];
 
+    @Output() newFilterEvent = new EventEmitter<string>();
+
+
+    regions = ["Africa", "America", "Asia", "Europe", "Oceania"];
+    filter: string;
 
     showRegions() {
       document.getElementById("dropdown-content")!.classList.toggle("visible")
+    }
+
+    filterByRegion(region:string) {
+          this.newFilterEvent.emit(region);
     }
 }

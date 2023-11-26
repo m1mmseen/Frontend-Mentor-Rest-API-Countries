@@ -5,7 +5,7 @@
     <i class="arrow down"></i>
     <div class="dropdown-content field-layout" id="dropdown-content">
       <ul>
-        <li *ngFor="let region of regions">{{region}}</li>
+        <li *ngFor="let region of regions" (click)="filterByRegion(region)">{{region}}</li>
       </ul>
     </div>
   </div>
