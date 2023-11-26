@@ -1,7 +1,9 @@
 .countries {
+  position: relative;
   display: grid;
   gap: 40px;
-  padding-inline: calc(var(--padding-outside) + 38px)
+  padding-inline: calc(var(--padding-outside) + 38px);
+  margin-top: 24px;
 }
 @media screen and (min-width: 768px) {
   .countries {
@@ -23,3 +25,25 @@
     justify-content: space-between;
   }
 }
+
+.error-message {
+  width: 79%;
+  height: 80px;
+  opacity: 0;
+  background: hsl(0, 91%, 78%);
+  position: absolute;
+  top:15px;
+  left: var(--padding-outside);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--heading-m);
+  transition: opacity .5s ease-in-out;
+}
+
+.error-message.visible {
+  opacity: .9;
+}
+
+

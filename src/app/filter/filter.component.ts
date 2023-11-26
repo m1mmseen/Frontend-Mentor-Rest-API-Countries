@@ -7,9 +7,12 @@ import {Component, EventEmitter, Output} from '@angular/core';
 })
 export class FilterComponent {
 
+    // sends region filter to parent
     @Output() newFilterEvent = new EventEmitter<string>();
+    // sends country search to parent
+    @Output() newSearchEvent = new EventEmitter<string>();
 
-
+    /* ----- FILTER BY REGION LOGIC ----- */
     regions = ["Africa", "America", "Asia", "Europe", "Oceania"];
     filter: string;
 
@@ -20,4 +23,15 @@ export class FilterComponent {
     filterByRegion(region:string) {
           this.newFilterEvent.emit(region);
     }
+
+
+    /* ----- SEARCHBAR LOGIC ----- */
+    searchbar = document.getElementById("searchbar")!;
+
+    search(event:any) {
+      document.querySelector(".error-message")!.classList.remove("visible");
+      this.newSearchEvent.emit(event.target.value);
+    }
+
+
 }

@@ -1,5 +1,6 @@
-<filter (newFilterEvent)="filteredByRegion($event)"></filter>
+<filter (newFilterEvent)="filteredByRegion($event)" (newSearchEvent)="getSearchedCountry($event)"></filter>
 <div class="countries">
   <country *ngFor="let country of countries" [countryFromParent]="country"></country>
 </div>
+<div class="error-message field-layout">There is no country with this name</div>
 

@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component} from '@angular/core';
 import {Country} from "../Country";
 
 
@@ -7,57 +7,52 @@ import {Country} from "../Country";
   templateUrl: './countries.component.html',
   styleUrls: ['./countries.component.css']
 })
-export class CountriesComponent implements OnInit {
+export class CountriesComponent {
 
   message:string;
 
   countries: Country[] = [];
+  filteredCountries: Country[] = [];
 
-  ngOnInit() {
-    this.getCountreis()
+  constructor() {
+    this.getCountries();
   }
 
-  async getCountreis() {
-    await fetch("https://restcountries.com/v3.1/all")
-      .then(response => {
-        if(response.ok) {
-          return response.json();
-        } else {
-          throw new Error(("Error fetching countries"));
-        }
-      })
-      .then(data => {
-        const res = data;
-        this.countries = data;
-      });
+  async getCountries() {
+    try {
+      const response = await fetch("https://restcountries.com/v3.1/all");
+      if (!response.ok) {
+        throw new Error("Error fetching countries");
+      }
+      const data = await response.json();
+      this.countries = data;
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   async filteredByRegion($event: string) {
-    await fetch("https://restcountries.com/v3.1/region/" +$event)
-      .then(response => {
-        if(response.ok) {
-          return response.json();
-        } else {
-          throw new Error(("Error fetching countries"));
-        }
-      })
-      .then(data => {
-        const res = data;
-        this.countries = data;
-
-      });
+    try {
+      const response = await fetch("https://restcountries.com/v3.1/region/" +$event);
+      if (!response.ok) {
+        throw new Error("Error fetching countries");
+      }
+      const data = await response.json();
+      this.countries = data;
+    } catch (error) {
+      console.error(error);
+    }
   }
-/*  ngOnChanges(changes: SimpleChanges) {
-    console.log(changes);
+  async getSearchedCountry($event: string) {
+    try {
+      const response = await fetch("https://restcountries.com/v3.1/name/" + $event);
+      if (!response.ok) throw new Error("Error fetching countries");
+      this.countries = await response.json();
+    } catch (error) {
+      if ($event.length > 0) {
+        document.querySelector(".error-message")!.classList.add("visible");
+      }
+    }
+
   }
-
-
-  }*/
-
-  receiveMessage($event: string) {
-    this.message = $event;
-    console.log(this.message);
-  }
-
-
 }
