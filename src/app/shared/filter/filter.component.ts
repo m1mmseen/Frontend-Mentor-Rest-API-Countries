@@ -13,7 +13,7 @@ export class FilterComponent {
     @Output() newSearchEvent = new EventEmitter<string>();
 
     /* ----- FILTER BY REGION LOGIC ----- */
-    regions = ["Africa", "America", "Asia", "Europe", "Oceania"];
+    regions = ["All", "Africa", "America", "Asia", "Europe", "Oceania"];
     filter: string;
 
     showRegions() {

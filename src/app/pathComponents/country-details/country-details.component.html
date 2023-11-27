@@ -1,0 +1,56 @@
+<div class="country-details" *ngFor="let country of countryArray">
+  <div class="country-details-header">
+    <button class="field-layout" id="back" routerLink=""><span>&larr;</span><span>Back</span></button>
+  </div>
+  <div class="country-details-content">
+    <img src="{{country.flags.svg}}" alt="">
+    <div class="country-infos">
+      <h2>{{country.name.common}}</h2>
+      <div class="info-text">
+        <div class="geograpical-infos">
+          <p id="native-name">
+            <small class="field-description">Native Name: </small>
+            {{getFirstNativeName(country)}}
+          </p>
+          <p id="population">
+            <small class="field-description">Population: </small>
+            {{country.population | number}}
+          </p>
+          <p id="region">
+            <small class="field-description">Region: </small>
+            {{country.region}}
+          </p>
+          <p id="sub-region">
+            <small class="field-description">Sub Region: </small>
+            {{country.subregion}}
+          </p>
+          <p id="capital">
+            <small class="field-description">Capital: </small>
+            {{country.capital}}
+          </p>
+        </div>
+        <div class="useful-infos">
+          <p id="tld">
+            <small class="field-description">Top Level Domain: </small>
+            {{country.tld}}
+          </p>
+          <p id="currencies">
+            <small class="field-description">Currencies: </small>
+          </p>
+          <p id="languages">
+            <small class="field-description">Languages: </small>
+            <span *ngFor="let language of country.languages | keyvalue">{{language.value}}</span></p>
+        </div>
+      </div>
+      <div class="border-countries">
+        <h3>Border Countries</h3>
+        <div class="btn-group">
+          <button class="field-layout" *ngFor="let borderCountry of country.borders" routerLink="/country-details/{{borderCountry}}">{{getNameByCca3(borderCountry)}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+

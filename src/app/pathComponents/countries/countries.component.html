@@ -1,0 +1,7 @@
+<filter (newFilterEvent)="filteredByRegion($event)" (newSearchEvent)="getSearchedCountry($event)"></filter>
+
+<div class="countries">
+  <country class="country" *ngFor="let country of countries" [countryFromParent]="country" routerLink="/country-detail/{{country.name.common}}"></country>
+</div>
+<div class="error-message field-layout"></div>
+

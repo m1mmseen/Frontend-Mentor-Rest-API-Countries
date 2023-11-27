@@ -28,7 +28,7 @@ input {
   width: 100%;
   height: 48px;
   background-color: var(--primary);
-  background-image: url('src/assets/images/searchicon.png');
+  background-image: url('searchicon.png');
   background-position: left 10px center;
   background-repeat: no-repeat;
   font-size: 12px;

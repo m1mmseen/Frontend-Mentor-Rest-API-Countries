@@ -1,0 +1,95 @@
+.country-details {
+  margin-top: 20px;
+  padding-inline: var(--padding-outside);
+  position: relative;
+}
+
+.country-details img {
+  width: 100%;
+  max-width: 320px;
+}
+
+.country-details h2 {
+  font-size: var(--heading-details);
+}
+
+.country-details :is(p, small) {
+  font-size: clamp(0.875rem, 0.831rem + 0.1878vw, 1rem);
+  font-weight: 300;
+}
+
+.country-details small.field-description{
+  font-weight: 600;
+}
+
+button {
+  height: 32px;
+  width: fit-content;
+/*  width: clamp(6.5rem, 5.7958rem + 3.0047vw, 8.5rem);*/
+  font-size: var(--button-text);
+  color: var(--text-clr);
+}
+
+#back {
+  margin-bottom: 40px;
+}
+
+button span:first-of-type {
+  margin-right: .4rem;
+  font-size: 16px;
+}
+img  {
+  border-radius: 5px;
+  margin-bottom: 40px;
+}
+.btn-group {
+  max-width: 401px;
+}
+
+
+/* ----- CONTENT ------ */
+.country-details-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex: 1 0 100%;
+  gap: 40px;
+}
+
+.info-text {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+@media screen and (min-width: 768px) {
+  .info-text {
+    flex-direction: row;
+  }
+}
+
+
+/* ----- LANGUAGES ----- */
+#languages {
+  font-size: 14px;
+}
+
+#languages span:not(span:last-of-type)::after {
+  content: ", ";
+}
+
+/* ----- BORDER COUNTRIES ----- */
+
+.border-countries {
+  margin-top: 40px
+}
+
+.border-countries h3 {
+  font-size: 16px;
+}
+
+.border-countries button {
+  margin-right: .5rem;
+  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.10);;
+}

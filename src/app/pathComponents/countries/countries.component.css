@@ -5,6 +5,7 @@
   padding-inline: calc(var(--padding-outside) + 38px);
   margin-top: 24px;
 }
+
 @media screen and (min-width: 768px) {
   .countries {
     grid-template-columns: repeat(2, 264px);
@@ -46,4 +47,16 @@
   opacity: .9;
 }
 
+@media screen and (min-width: 768px) {
+  .error-message {
+    width: calc(90% - (var(--padding-outside) * 2));
+  }
+}
 
+@media screen and (min-width: 1024px) {
+
+}
+
+@media screen and (min-width: 1440px) {
+
+}
