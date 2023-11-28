@@ -16,7 +16,6 @@
   position: relative;
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
-  box-shadow: 0 0 0 100vw hsla(187, 75%, 50%, 25%);
   z-index: 5;
 }
 .loader::after {
@@ -32,6 +31,7 @@
   border: 3px solid;
   border-color: hsl(187 75% 50%) transparent;
 }
+
 
 @keyframes rotation {
   0% {
