@@ -1,27 +1,86 @@
-# RestCountriesApi
+# Frontend Mentor - REST Countries API with color theme switcher solution
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.7.
+This is a solution to the [REST Countries API with color theme switcher challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
-## Development server
+## Table of contents
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Overview
 
-## Build
+### The challenge
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Users should be able to:
 
-## Running unit tests
+- See all countries from the API on the homepage
+- Search for a country using an `input` field
+- Filter countries by region
+- Click on a country to see more detailed information on a separate page
+- Click through to the border countries on the detail page
+- Toggle the color scheme between light and dark mode *(optional)*
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Screenshot
 
-## Running end-to-end tests
+![Screenshot](src/assets/images/screenshot_rest-api-countries.vercel.app.png)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Links
 
-## Further help
+- Solution URL: [Code](https://github.com/m1mmseen/Frontend-Mentor-Rest-API-Countries)
+- Live Site URL: [Vercel App](https://m1mmseen-rest-api-countries.vercel.app/)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## My process
+
+### Built with
+- Angular
+- HTML5
+- CSS
+- Mobile-first workflow
+
+
+### What I learned
+
+#### - Using angulars interceptor. In this case for dynamically show loading animation while api requests
+```ts
+  public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+
+  this.requests.push(request)
+  this.loadingService.isLoading.next(true)
+
+  return new Observable(observer => {
+    const subscription = next.handle(request).subscribe( event => {
+      if(event instanceof HttpResponse) {
+        this.removeRequest(request);
+        observer.next(event);
+      }
+    })
+  })
+}
+```
+
+#### - Working with fallback data in case the api is down
+
+#### - Watching data in routes with subscribers to refresh data in the same component (see useful links)
+
+### Continued development
+Every change to the master branch in GitHub are synchronized to the Vercel app deployment.
+
+### Useful resources
+
+- [Angular Theme Switcher](https://codebeyondlimits.com/articles/angular-theming-how-to-create-a-dynamic-theme-switcher-for-light-and-dark-mode)
+- [Filter](https://www.w3schools.com/howto/howto_js_filter_lists.asp)
+- [Dropdown](https://www.w3schools.com/css/css_dropdowns.asp)
+- [Watching Route Param with Subscriber](https://kamranahmed.info/blog/2018/02/28/dealing-with-route-params-in-angular-5)
+
+## Author
+
+- Frontend Mentor - [M1mmseen](https://www.frontendmentor.io/profile/m1mmseen)
